@@ -1,0 +1,22 @@
+机器10.18.18.69
+
+opengl接口使用的pyopengl
+
+测试脚本
+/opt/zhangyang/testopencvgl/rendertexture.py
+这个脚本吧test.jpg渲染到纹理上，在从纹理把数据读出保存图片
+
+两个方向：
+第一我没有成功
+第二个可能是使用的软件渲染，是否可以只用OSMesa做context，其他继续使用硬件渲染，这个我没有调查出来
+
+easiest:
+
+    Xvfb :5 -screen 0 800x600x24 &
+    export DISPLAY=:5
+    glxgears 
+    instead of glxgears, replace with your program, and stick a 'glutInit()' into your python code to get a basic GL window.
+
+harder:
+    rewrite your program to create an GL context using the OSMesa library
+
